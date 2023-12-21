@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "strict": true,
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -11,5 +10,6 @@
     "types": ["vite/client"],
     "noEmit": true,
     "isolatedModules": true
-  }
+  },
+	"extends": "@tsconfig/strictest/tsconfig.json",
 }

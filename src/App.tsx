@@ -1,14 +1,13 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+import styles from "./App.module.css";
 
 const App: Component = () => {
-  return (
-    <div class={styles.App}>
+	return (
+		<div class={styles["App"]}>
 			text
-    </div>
-  );
+		</div>
+	);
 };
 
 export default App;
