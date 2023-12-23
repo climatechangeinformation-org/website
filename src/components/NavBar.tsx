@@ -1,3 +1,5 @@
+import { A } from "@solidjs/router";
+
 import "./NavBar.scss";
 
 export default function Navigation() {
@@ -5,7 +7,7 @@ export default function Navigation() {
 		<div>
 			<ul>
 				<li>
-					<a href="/articles">Articles</a>
+					<A href="/articles">Articles</A>
 				</li>
 			</ul>
 		</div>

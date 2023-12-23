@@ -7,6 +7,8 @@ const Home: Component = () => {
 	return (
 		<div>
 			<Navigation/>
+
+			Home
 		</div>
 	);
 };

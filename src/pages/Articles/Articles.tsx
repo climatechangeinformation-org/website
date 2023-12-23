@@ -1,12 +1,16 @@
-// import type { Component } from "solid-js";
+import type { Component } from "solid-js";
 
-import styles from "./App.module.css";
+// import "./Articles.scss"
 import Navigation from "../../components/NavBar";
 
-export default () => {
+const Home: Component = () => {
 	return (
-		<div class={styles["App"]}>
+		<div>
 			<Navigation/>
+
+			Articles
 		</div>
 	);
 };
+
+export default Home;
