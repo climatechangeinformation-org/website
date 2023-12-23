@@ -10,8 +10,9 @@ if (!(root instanceof HTMLElement)) {
 	throw new Error("Root element not found.");
 }
 
-render(() => (
-	<Router>
+render(
+	() => <Router>
 		<Route path="/" component={Home} />
-	</Router>
-), root);
+	</Router>,
+	root
+);
