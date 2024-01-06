@@ -1,3 +1,11 @@
+@import "../variables.scss";
+
 nav {
-	display: grid;
+	display: flex;
+	flex-direction: row;
+	gap: calc(0.5rem + 0.2vw);
+
+	a {
+		color: $foreground-color;
+	}
 }
