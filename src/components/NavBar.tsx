@@ -4,12 +4,9 @@ import "./NavBar.scss";
 
 export default function Navigation() {
 	return (
-		<div>
-			<ul>
-				<li>
-					<A href="/articles">Articles</A>
-				</li>
-			</ul>
-		</div>
+		<nav>
+			<A href="/impacts">Impacts</A>
+			<A href="/causes">Causes</A>
+		</nav>
 	);
 }

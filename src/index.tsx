@@ -6,12 +6,14 @@ import "./index.scss";
 
 import Home from "./pages/Home/Home";
 
-const Articles = lazy(() => import("./pages/Articles/Articles"));
+const Impacts = lazy(() => import("./pages/Impacts/Impacts"));
+const Causes = lazy(() => import("./pages/Causes/Causes"));
 
 render(
 	() => <Router>
 		<Route path="/" component={Home} />
-		<Route path="/articles" component={Articles} />
+		<Route path="/impacts" component={Impacts} />
+		<Route path="/causes" component={Causes} />
 	</Router>,
 	document.getElementById("root") as HTMLElement
 );

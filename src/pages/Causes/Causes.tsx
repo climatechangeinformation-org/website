@@ -1,16 +1,15 @@
 import type { Component } from "solid-js";
 
-// import "./Articles.scss"
 import Navigation from "../../components/NavBar";
 
-const Home: Component = () => {
+const Causes: Component = () => {
 	return (
 		<div>
 			<Navigation/>
 
-			Articles
+			Causes of climate change
 		</div>
 	);
 };
 
-export default Home;
+export default Causes;
