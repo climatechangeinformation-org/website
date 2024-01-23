@@ -4,9 +4,11 @@ import solidPlugin from "vite-plugin-solid";
 import legacy from "@vitejs/plugin-legacy";
 import browserslist from 'browserslist';
 import { defineConfig } from "vite";
+import vitePluginString from "vite-plugin-string";
 
 export default defineConfig({
 	plugins: [
+		vitePluginString(),
 		solidPlugin(),
 		legacy({
 			targets: [
