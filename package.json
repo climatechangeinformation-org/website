@@ -29,7 +29,7 @@
 		"vite-plugin-string": "^1.2.3"
 	},
 	"dependencies": {
-		"@solidjs/router": "^0.10.9",
+		"@solidjs/router": "^0.11.3",
 		"@types/three": "^0.160.0",
 		"solid-js": "^1.8.11",
 		"three": "^0.160.1",
