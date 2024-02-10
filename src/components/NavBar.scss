@@ -2,10 +2,10 @@
 
 nav {
 	display: flex;
-	margin-top: 0.5em;
 	flex-direction: row;
+	gap: calc(1rem + 1vw);
 	justify-content: center;
-	gap: calc(0.5rem + 0.2vw);
+	margin-top: 0.5em;
 
 	a {
 		color: $foreground-color;

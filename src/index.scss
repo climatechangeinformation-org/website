@@ -9,22 +9,12 @@ body {
 	margin: 0;
 }
 
-#root {
+main {
+	background-repeat: no-repeat;
+	background-size: cover;
 	height: 100dvh;
 	height: 100svh;
 	height: 100vh;
-}
-
-.background-image {
 	position: absolute;
-	inset: 0;
-	height: 100%;
-	z-index: -1;
-}
-
-@media (min-aspect-ratio: 16 / 9) {
-	.background-image {
-		height: auto;
-		width: 100%;
-	}
+	width: 100vw;
 }

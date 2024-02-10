@@ -5,12 +5,14 @@ import legacy from "@vitejs/plugin-legacy";
 import browserslist from 'browserslist';
 import { defineConfig } from "vite";
 
+const browsers = "last 30 versions or > 0.01% or not dead or last 3 IE versions";
+
 export default defineConfig({
 	plugins: [
 		solidPlugin(),
 		legacy({
 			targets: [
-				"last 30 versions or > 0.01% or not dead or last 3 IE versions"
+				browsers
 			],
 		}),
 	],
@@ -22,7 +24,7 @@ export default defineConfig({
 			plugins: [
 				lightningCss({
 					lightningcssOptions: {
-						targets: browserslistToTargets(browserslist("last 30 versions or > 0.01% or not dead or last 3 IE versions"))
+						targets: browserslistToTargets(browserslist(browsers))
 					}
 				})
 			]

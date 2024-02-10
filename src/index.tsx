@@ -15,5 +15,5 @@ render(
 		<Route path="/impacts" component={Impacts} />
 		<Route path="/causes" component={Causes} />
 	</Router>,
-	document.getElementById("root") as HTMLElement
+	document.getElementsByTagName("main")[0] as HTMLElement
 );

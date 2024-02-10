@@ -3,7 +3,7 @@ import type { Component } from "solid-js";
 import "./Home.scss"
 import Navigation from "../../components/NavBar";
 
-import globe from "../../assets/globe.webp"
+import globe from "../../assets/globe.webp";
 
 // import satellite_map from "../../assets/land_shallow_topo_15360.webp"; // NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
 
@@ -14,10 +14,11 @@ import globe from "../../assets/globe.webp"
 // import cloud_map from "../../assets/cloud_combined_8192.webp" // NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
 
 const Home: Component = () => {
+	document.getElementsByTagName("main")[0]!.style.backgroundImage = `url(${globe})`
+	
 	return (
 		<>
 			<Navigation/>
-			<img class="background-image" src={globe}/>
 		</>
 	);
 };
