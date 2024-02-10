@@ -2,7 +2,9 @@
 
 nav {
 	display: flex;
+	margin-top: 0.5em;
 	flex-direction: row;
+	justify-content: center;
 	gap: calc(0.5rem + 0.2vw);
 
 	a {
