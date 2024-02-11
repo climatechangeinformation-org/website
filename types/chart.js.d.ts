@@ -19,6 +19,7 @@ declare module "chart.js" {
 		static defaults: IDefaults;
 		static version: string;
 		options: IOptionsOptions;
+		data: IOptionsData;
 	}
 
 	interface IDefaults {

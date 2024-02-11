@@ -82,7 +82,7 @@ const Home: Component = () => {
 					(current_opacity! <= 0.5 && event.deltaY > 0) ||
 					event.deltaY <= 0
 				) {
-					const new_rgb = `rgb(${current_color.join(", ")}, ${current_opacity! + event.deltaY / 2000})`;
+					const new_rgb = `rgb(${current_color.join(", ")}, ${current_opacity! + event.deltaY / 4000})`;
 
 					co2_chart!.options.scales.x.grid.color = new_rgb;
 					co2_chart!.options.scales.x.ticks.color = new_rgb;
@@ -90,10 +90,17 @@ const Home: Component = () => {
 					co2_chart!.options.scales.y.grid.color = new_rgb;
 					co2_chart!.options.scales.y.ticks.color = new_rgb;
 					co2_chart!.options.scales.y.border.color = new_rgb;
-
 				}
 
-				co2_chart_line_progress += Math.ceil(event.deltaY / 2);
+				const progress_max = co2_chart!.data.datasets[0]!.data.length;
+
+				if (
+					(co2_chart_line_progress <= progress_max && event.deltaY > 0) ||
+					event.deltaY <= 0
+				) {
+					co2_chart_line_progress += Math.ceil(event.deltaY / 2);
+				}
+
 				co2_chart!.update();
 
 				if (co2_chart_line_progress <= 0) {
