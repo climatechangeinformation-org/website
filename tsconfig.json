@@ -11,5 +11,5 @@
 		"noEmit": true,
 		"isolatedModules": true
 	},
-	"extends": "@tsconfig/strictest/tsconfig.json",
+	"extends": "@tsconfig/strictest/tsconfig.json"
 }
