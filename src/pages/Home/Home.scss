@@ -1,3 +1,9 @@
-body > div {
-	margin: 0;
+@use "../../variables";
+
+body {
+	color: variables.$foreground-color;
+
+	& > div {
+		margin: 0;
+	}
 }

@@ -1,7 +1,7 @@
-@import "variables";
+@use "variables";
 
 :root {
-	font-family: $font-sans-serif;
+	font-family: variables.$font-sans-serif;
 	font-size: calc(1rem + 0.2vw);
 }
 
@@ -27,9 +27,20 @@ main {
 	flex: 1;
 	min-height: 0;
 	width: 100%;
+
+	& > * {
+		padding: 3em;
+		width: 100%;
+
+		&:not(.current) {
+			display: none !important;
+		}
+	}
 }
 
-
-canvas {
-	padding: 5em;
+.title {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
