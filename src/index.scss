@@ -12,16 +12,24 @@ body {
 main {
 	background-repeat: no-repeat;
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
 	height: 100dvh;
 	height: 100svh;
 	height: 100vh;
 	position: absolute;
 	width: 100vw;
-	display: flex;
-	flex-direction: column;
 }
 
-.chart-container {
-	height: 100%;
+.stack {
+	align-items: stretch;
+	display: flex;
+	flex: 1;
+	min-height: 0;
+	width: 100%;
+}
+
+
+canvas {
 	padding: 5em;
 }

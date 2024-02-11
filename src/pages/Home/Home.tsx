@@ -50,6 +50,7 @@ const Home: Component = () => {
 
 	onMount(() => fetch(co2_historical).then(async response => {
 		const data: ICO2Historical = (await response.json()).reverse();
+
 		new Chart(co2_chart, {
 			type: "line",
 			data: {
@@ -73,19 +74,20 @@ const Home: Component = () => {
 						intersect: false
 					}
 				},
+				responsive: true,
 				scales: {
 					y: {
 						beginAtZero: true
 					}
 				}
 			}
-		})
+		});
 	}));
 
 	return (
 		<>
 			<Navigation/>
-			<div class="chart-container">
+			<div class="stack">
 				<canvas ref={co2_chart}></canvas>
 			</div>
 		</>
