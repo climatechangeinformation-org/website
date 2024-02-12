@@ -76,10 +76,10 @@ function rgbStringValues(string: string) {
 
 function formatAbsoluteYear(absolute_year: number) {
 	if (absolute_year > 0) {
-		return absolute_year + " CE";
+		return `${absolute_year} CE`;
 	}
 
-	return -absolute_year + " BCE";
+	return `${-absolute_year} BCE`;
 }
 
 async function initiateCO2Chart() {
@@ -92,7 +92,7 @@ async function initiateCO2Chart() {
 		type: "line",
 		data: {
 			labels: data.map(row => (
-				row.year.split(" ")[1] == "CE"
+				row.year.split(" ")[1] === "CE"
 					? parseInt(row.year.split(" ")[0] as string)
 					: -parseInt(row.year.split(" ")[0] as string)
 			)),
@@ -171,7 +171,7 @@ const Home: Component = () => {
 	document.addEventListener("wheel", event => {
 		const co2_chart_canvas = document.getElementById("co2_chart");
 		switch (animation_stage) {
-			case 0:
+			case 0: {
 				const title = document.getElementsByClassName("title")[0] as HTMLElement;
 
 				if (!title.style.opacity) {
@@ -194,7 +194,7 @@ const Home: Component = () => {
 				}
 
 				break;
-			case 1:
+			} case 1: {
 				const scales = co2_chart?.options.scales;
 				const x_scale = scales?.["x"] as IChartScale;
 				const y_scale = scales?.["y"] as IChartScale;
@@ -236,6 +236,9 @@ const Home: Component = () => {
 				}
 
 				break;
+			} default: {
+				console.warn("Invalid animation stage variable");
+			}
 		}
 	});
 
@@ -253,7 +256,7 @@ const Home: Component = () => {
 			<Navigation/>
 			<div class="stack">
 				<div class="title current">
-					<h1>Title</h1>
+					<h1>Climate Change</h1>
 				</div>
 				<canvas id="co2_chart"></canvas>
 			</div>
