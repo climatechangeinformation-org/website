@@ -1,4 +1,4 @@
-import { browserslistToTargets } from 'lightningcss';
+import { browserslistToTargets } from "lightningcss";
 import lightningCss from "postcss-lightningcss";
 import solidPlugin from "vite-plugin-solid";
 import legacy from "@vitejs/plugin-legacy";

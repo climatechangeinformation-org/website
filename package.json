@@ -4,13 +4,15 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"lint": "npx stylelint '**/*.scss' && npx eslint 'src/*.ts*'",
+		"lint-scss": "npx stylelint '**/*.scss'",
+		"lint-ts": "npx eslint 'src/**/*.ts*' 'types/**/*.ts*'",
+		"lint": "npm run lint-scss && npm run lint-ts",
 		"build": "vite build"
 	},
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^1.6.1",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
+		"@typescript-eslint/eslint-plugin": "^7.0.1",
+		"@typescript-eslint/parser": "^7.0.1",
 		"chart.js": "^4.4.1",
 		"chartjs-adapter-date-fns": "^3.0.0",
 		"date-fns": "^3.3.1",
