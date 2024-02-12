@@ -10,6 +10,8 @@ import co2_historical from "../../assets/co2_historical.json?url";
 import "chartjs-adapter-date-fns";
 import { enUS } from 'date-fns/locale';
 
+import { type ChartConfiguration } from "chart.js";
+
 import {
 	CategoryScale,
 	Chart,
@@ -88,7 +90,7 @@ const Home: Component = () => {
 
 				break;
 			case 1:
-				const current_color = rgbStringValues(co2_chart!.options.scales.x.grid.color as string);
+				const current_color = rgbStringValues(co2_chart!.options.scales!["x"]!.grid!.color as string);
 				const current_opacity = current_color.pop();
 
 				if (
@@ -97,12 +99,12 @@ const Home: Component = () => {
 				) {
 					const new_rgb = `rgb(${current_color.join(", ")}, ${current_opacity! + event.deltaY / 4000})`;
 
-					co2_chart!.options.scales.x.grid.color = new_rgb;
-					co2_chart!.options.scales.x.ticks.color = new_rgb;
-					co2_chart!.options.scales.x.border.color = new_rgb;
-					co2_chart!.options.scales.y.grid.color = new_rgb;
-					co2_chart!.options.scales.y.ticks.color = new_rgb;
-					co2_chart!.options.scales.y.border.color = new_rgb;
+					co2_chart!.options.scales!["x"]!.grid!.color = new_rgb;
+					co2_chart!.options.scales!["x"]!.ticks!.color = new_rgb;
+					(co2_chart!.options.scales!["x"]! as any).border!.color = new_rgb;
+					co2_chart!.options.scales!["y"]!.grid!.color = new_rgb;
+					co2_chart!.options.scales!["y"]!.ticks!.color = new_rgb;
+					(co2_chart!.options.scales!["y"]! as any).border!.color = new_rgb;
 				}
 
 				const progress_max = co2_chart!.data.datasets[0]!.data.length;
@@ -132,7 +134,7 @@ const Home: Component = () => {
 		const data: ICO2Historical = (await response.json()).reverse();
 		const co2_chart_canvas = document.getElementById("co2_chart")!;
 
-		co2_chart = new Chart(co2_chart_canvas, {
+		co2_chart = new Chart(co2_chart_canvas as HTMLCanvasElement, {
 			type: "line",
 			data: {
 				labels: data.map(row => (
@@ -164,7 +166,7 @@ const Home: Component = () => {
 					tooltip: {
 						callbacks: {
 							label: context => context.formattedValue,
-							title: context => formatAbsoluteYear(context[0].parsed.x)
+							title: context => formatAbsoluteYear(context[0]!.parsed.x)
 						},
 						mode: "index",
 						intersect: false
@@ -185,7 +187,7 @@ const Home: Component = () => {
 						},
 						ticks: {
 							color: "rgb(255, 255, 255, 0)",
-							callback: value => formatAbsoluteYear(value)
+							callback: value => formatAbsoluteYear(value as number)
 						},
 						border: {
 							color: "rgb(255, 255, 255, 0)"
@@ -205,7 +207,7 @@ const Home: Component = () => {
 					}
 				}
 			}
-		});
+		} as ChartConfiguration);
 	}));
 
 	return (
