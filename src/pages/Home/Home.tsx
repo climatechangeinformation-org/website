@@ -33,13 +33,19 @@ Chart.register(
 	Tooltip,
 );
 
-// import satellite_map from "../../assets/land_shallow_topo_15360.webp"; // NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
+// TODO: Add sources for the background image
+// land_shallow_topo_15360.webp: NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
 
-// import water_mask from "../../assets/world.watermask.8100x4050.webp" // Reto Stöckli; Eric Vermote; Nazmi Saleous; Robert Simmon; David Herring.
+// world.watermask.8100x4050.webp: Reto Stöckli; Eric Vermote; Nazmi Saleous; Robert Simmon; David Herring.
 
-// import topography_map from "../../assets/gebco_08_rev_elev_8192x4096.webp" // NASA's Earth Observatory;  British Oceanographic Data Centre; Jesse Allen.
+// gebco_08_rev_elev_8192x4096.webp: NASA's Earth Observatory;  British Oceanographic Data Centre; Jesse Allen.
 
-// import cloud_map from "../../assets/cloud_combined_8192.webp" // NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
+// cloud_combined_8192.webp: NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
+
+
+// TODO: Add sources for the historical CO2 data
+// 1959 - 2023 data: Dr. Xin Lan, NOAA/GML (gml.noaa.gov/ccgg/trends/) and Dr. Ralph Keeling, Scripps Institution of Oceanography (scrippsco2.ucsd.edu/).
+// 803719 BCE - 1958 data: Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker, H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957
 
 interface ICO2Historical {
 	year: string;
@@ -187,6 +193,7 @@ const Home: Component = () => {
 						},
 						ticks: {
 							color: "rgb(255, 255, 255, 0)",
+							stepSize: 20,
 							callback: value => formatAbsoluteYear(value as number)
 						},
 						border: {
