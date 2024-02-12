@@ -7,6 +7,9 @@ import Navigation from "../../components/NavBar";
 import globe from "../../assets/globe.webp";
 import co2_historical from "../../assets/co2_historical.json?url";
 
+import "chartjs-adapter-date-fns";
+import { enUS } from 'date-fns/locale';
+
 import {
 	CategoryScale,
 	Chart,
@@ -14,16 +17,18 @@ import {
 	LineController,
 	LineElement,
 	PointElement,
+	TimeScale,
 	Tooltip,
 } from "chart.js";
 
 Chart.register(
-	Tooltip,
+	CategoryScale,
 	LinearScale,
+	LineController,
 	LineElement,
 	PointElement,
-	CategoryScale,
-	LineController
+	TimeScale,
+	Tooltip,
 );
 
 // import satellite_map from "../../assets/land_shallow_topo_15360.webp"; // NASA Goddard Space Flight Center; Reto Stöckli; Robert Simmon.
@@ -45,6 +50,14 @@ var co2_chart_line_progress = 0;
 
 function rgbStringValues(string: string) {
 	return string.slice(4, -1).split(", ").map(value => parseFloat(value));
+}
+
+function formatAbsoluteYear(absolute_year: number) {
+	if (absolute_year > 0) {
+		return absolute_year + " CE";
+	}
+
+	return -absolute_year + " BCE";
 }
 
 const Home: Component = () => {
@@ -122,12 +135,20 @@ const Home: Component = () => {
 		co2_chart = new Chart(co2_chart_canvas, {
 			type: "line",
 			data: {
-				labels: data.map(row => row.year),
+				labels: data.map(row => (
+					row.year.split(" ")[1] == "CE" ?
+					parseInt(row.year.split(" ")[0]) :
+					-parseInt(row.year.split(" ")[0])
+				)),
 				datasets: [{
 					data: data.map(row => row.co2),
 					borderColor: "#fff",
 					segment: {
-						borderColor: context => context.p0DataIndex! <= co2_chart_line_progress ?  "rgb(255, 255, 255)" : "rgb(0, 0, 0, 0)"
+						borderColor: context => (
+							context.p0DataIndex! <= co2_chart_line_progress ?
+							"rgb(255, 255, 255)" :
+							"rgb(0, 0, 0, 0)"
+						)
 					}
 				}]
 			},
@@ -141,6 +162,10 @@ const Home: Component = () => {
 				maintainAspectRatio: false,
 				plugins: {
 					tooltip: {
+						callbacks: {
+							label: context => context.formattedValue,
+							title: context => formatAbsoluteYear(context[0].parsed.x)
+						},
 						mode: "index",
 						intersect: false
 					}
@@ -148,11 +173,19 @@ const Home: Component = () => {
 				responsive: true,
 				scales: {
 					x: {
+						parsing: false,
+						type: "time",
+						adapters: {
+							date: {
+								locale: enUS
+							}
+						},
 						grid: {
 							color: "rgb(255, 255, 255, 0)"
 						},
 						ticks: {
-							color: "rgb(255, 255, 255, 0)"
+							color: "rgb(255, 255, 255, 0)",
+							callback: value => formatAbsoluteYear(value)
 						},
 						border: {
 							color: "rgb(255, 255, 255, 0)"

@@ -1,4 +1,6 @@
 declare module "chart.js" {
+	import { type Locale } from "date-fns/types";
+
 	export declare class Chart {
 		constructor(canvas: HTMLElement, options: IOptions);
 
@@ -106,8 +108,14 @@ declare module "chart.js" {
 	}
 
 	interface IOptionsPluginsTooltip {
+		callbacks: IOptionsPluginsTooltipCallbacks;
 		mode: string;
 		intersect: boolean;
+	}
+
+	interface IOptionsPluginsTooltipCallbacks {
+		label: (context: any) => any;
+		title: (context: any) => any;
 	}
 
 	interface IOptionsScales {
@@ -116,14 +124,29 @@ declare module "chart.js" {
 	}
 	
 	interface IChartScaleAxis {
+		parsing?: boolean;
+		type?: string;
+		adapters?: IChartScaleAxisAdapter;
 		beginAtZero?: boolean;
 		grid: IChartScaleAxisItem;
-		ticks: IChartScaleAxisItem;
+		ticks: IChartScaleAxisTicks;
 		border: IChartScaleAxisItem;
+	}
+
+	interface IChartScaleAxisAdapter {
+		date: IChartScaleAxisDateAdapter;
+	}
+
+	interface IChartScaleAxisDateAdapter {
+		locale: Locale;
 	}
 
 	interface IChartScaleAxisItem {
 		color: string;
+	}
+
+	interface IChartScaleAxisTicks extends IChartScaleAxisItem {
+		callback?: (value: any) => any;
 	}
 
 	export class CategoryScale { }
@@ -131,5 +154,6 @@ declare module "chart.js" {
 	export class LineController { }
 	export class LineElement { }
 	export class PointElement { }
+	export class TimeScale { }
 	export class Tooltip { }
 }
