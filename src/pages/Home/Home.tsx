@@ -50,7 +50,6 @@ Chart.register(
 interface ICO2Historical {
 	year: string;
 	co2: number;
-	map: typeof Array.prototype.map;
 }
 
 var animation_stage = 0;
@@ -137,7 +136,7 @@ const Home: Component = () => {
 	document.getElementsByTagName("main")[0]!.style.backgroundImage = `url(${globe})`;
 
 	onMount(() => fetch(co2_historical).then(async response => {
-		const data: ICO2Historical = (await response.json()).reverse();
+		const data: ReadonlyArray<ICO2Historical> = (await response.json()).reverse();
 		const co2_chart_canvas = document.getElementById("co2_chart")!;
 
 		co2_chart = new Chart(co2_chart_canvas as HTMLCanvasElement, {
@@ -145,8 +144,8 @@ const Home: Component = () => {
 			data: {
 				labels: data.map(row => (
 					row.year.split(" ")[1] == "CE" ?
-					parseInt(row.year.split(" ")[0]) :
-					-parseInt(row.year.split(" ")[0])
+					parseInt(row.year.split(" ")[0]!) :
+					-parseInt(row.year.split(" ")[0]!)
 				)),
 				datasets: [{
 					data: data.map(row => row.co2),
