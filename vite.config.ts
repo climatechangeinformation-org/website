@@ -8,6 +8,7 @@ import { defineConfig } from "vite";
 const browsers = "last 30 versions or > 0.01% or not dead or last 3 IE versions";
 
 export default defineConfig({
+	publicDir: "src/public",
 	plugins: [
 		solidPlugin(),
 		legacy({
