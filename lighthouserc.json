@@ -4,19 +4,6 @@
 			"url": ["http://localhost/"],
 			"staticDistDir": "./dist/"
 		},
-		"assert": {
-			"preset": "lighthouse:recommended",
-			"assertions": {
-				"csp-xss": "off",
-				"installable-manifest": "off",
-				"maskable-icon": "off",
-				"meta-description": "off",
-				"splash-screen": "off",
-				"themed-omnibox": "off",
-				"total-byte-weight": "off",
-				"unused-javascript": "off"
-			}
-		},
 		"upload": {
 			"target": "temporary-public-storage"
 		}
