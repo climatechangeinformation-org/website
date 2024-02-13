@@ -4,8 +4,7 @@ import lightningCss from "postcss-lightningcss";
 import solidPlugin from "vite-plugin-solid";
 
 import { browserslistToTargets } from "lightningcss";
-import { defineConfig } from "vite";
-import { splitVendorChunkPlugin } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 
 const browsers = "last 30 versions or > 0.01% or not dead or last 3 IE versions";
 
