@@ -1,8 +1,11 @@
 {
 	"ci": {
 		"collect": {
-			"staticDistDir": "./dist"
-		},
+      "url": [
+				"http://localhost:3000/"
+			],
+      "startServerCommand": "npx serve dist"
+    },
 		"upload": {
 			"target": "temporary-public-storage"
 		}
