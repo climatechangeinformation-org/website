@@ -1,9 +1,11 @@
-import { browserslistToTargets } from "lightningcss";
+import browserslist from 'browserslist';
+import legacy from "@vitejs/plugin-legacy";
 import lightningCss from "postcss-lightningcss";
 import solidPlugin from "vite-plugin-solid";
-import legacy from "@vitejs/plugin-legacy";
-import browserslist from 'browserslist';
+
+import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
+import { splitVendorChunkPlugin } from 'vite';
 
 const browsers = "last 30 versions or > 0.01% or not dead or last 3 IE versions";
 
@@ -11,6 +13,7 @@ export default defineConfig({
 	publicDir: "src/public",
 	plugins: [
 		solidPlugin(),
+		splitVendorChunkPlugin(),
 		legacy({
 			targets: [
 				browsers
@@ -29,6 +32,31 @@ export default defineConfig({
 					}
 				})
 			]
+		}
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks(id: string) {
+					if (id.includes("solid-js")) {
+						return "solidjs";
+					} else if (id.includes("@solidjs/router")) {
+						return "solidjs-router";
+					} else if (id.includes("date-fns")) {
+						return "date-fns";
+					} else if (id.includes("chart.js")) {
+						if (id.includes("helpers")) {
+							return "chart-js-helper";
+						}
+
+						return "chart-js";
+					} else if (id.includes("@kurkle/color")) {
+						return "color";
+					}
+
+					return "vendor";
+				}
+			}
 		}
 	}
 });
