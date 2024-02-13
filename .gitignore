@@ -1,6 +1,8 @@
 node_modules
 dist
 
+.lighthouseci
+
 .vscode
 .idea
 .DS_Store
