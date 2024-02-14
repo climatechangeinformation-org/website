@@ -1,5 +1,5 @@
 declare module "chart.js-supplementary" {
-	interface IChartScale {
+	export interface IChartScale {
 		grid: {
 			color: string;
 		};
