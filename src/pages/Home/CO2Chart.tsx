@@ -1,36 +1,9 @@
 import co2_historical from "../../assets/co2_historical.json?url";
 
-import { enUS } from "date-fns/locale";
-
-import "chartjs-adapter-date-fns";
-
-import { type ChartConfiguration } from "chart.js";
-
-import {
-	CategoryScale,
-	Chart,
-	LinearScale,
-	LineController,
-	LineElement,
-	PointElement,
-	TimeScale,
-	Tooltip
-} from "chart.js";
-
-Chart.register(
-	CategoryScale,
-	LinearScale,
-	LineController,
-	LineElement,
-	PointElement,
-	TimeScale,
-	Tooltip
-);
-
 import { type IChartScale } from "chart.js-supplementary";
 
 let co2_chart_line_progress = 0;
-let co2_chart: Chart | undefined;
+let co2_chart: import("chart.js").Chart | undefined;
 
 interface ICO2Historical {
 	year: string;
@@ -54,6 +27,33 @@ export async function initiateCO2Chart() {
 	let data = await response.json() as ICO2Historical[];
 	data = data.reverse();
 	const co2_chart_canvas = document.getElementById("co2_chart");
+
+	type ChartConfiguration = import("chart.js").ChartConfiguration;
+
+	const { enUS } = await import("date-fns/locale");
+
+	await import("chartjs-adapter-date-fns");
+
+	const {
+		CategoryScale,
+		Chart,
+		LinearScale,
+		LineController,
+		LineElement,
+		PointElement,
+		TimeScale,
+		Tooltip
+	} = await import("chart.js");
+
+	Chart.register(
+		CategoryScale,
+		LinearScale,
+		LineController,
+		LineElement,
+		PointElement,
+		TimeScale,
+		Tooltip
+	);
 
 	co2_chart = new Chart(co2_chart_canvas as HTMLCanvasElement, {
 		type: "line",
