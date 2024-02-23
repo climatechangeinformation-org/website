@@ -1,0 +1,25 @@
+name: Verify CSP Hashes
+
+on:
+  push:
+    paths:
+      - "package.json"
+  pull_request:
+    paths:
+      - "package.json"
+
+jobs:
+  verify-hashes:
+    name: Verify hashes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Verify hashes
+        run: node tools/csp_hashes.js
