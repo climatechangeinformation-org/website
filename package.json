@@ -24,7 +24,7 @@
 		"typescript": "^5.3.3"
 	},
 	"dependencies": {
-		"@solidjs/router": "^0.12.3",
+		"@solidjs/router": "^0.12.4",
 		"@tsconfig/strictest": "^2.0.3",
 		"@vitejs/plugin-legacy": "~5.3.1",
 		"postcss-lightningcss": "^1.0.0",
