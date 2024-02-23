@@ -115,7 +115,7 @@ const Home: Component = () => {
 					when={show_co2_chart()}
 					fallback={<p>Loading...</p>}
 				>
-					<canvas id="co2_chart"></canvas>
+					<canvas id="co2_chart" class="chart"></canvas>
 				</Show>
 			</div>
 		</>
