@@ -17,7 +17,7 @@
 		"chartjs-adapter-date-fns": "^3.0.0",
 		"date-fns": "^3.3.1",
 		"eslint": "^8.56.0",
-		"sass": "^1.71.0",
+		"sass": "^1.71.1",
 		"stylelint": "^16.2.1",
 		"stylelint-config-standard-scss": "^13.0.0",
 		"stylelint-order": "^6.0.4",
