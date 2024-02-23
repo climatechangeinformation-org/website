@@ -30,9 +30,7 @@ export async function initiateCO2Chart() {
 
 	type ChartConfiguration = import("chart.js").ChartConfiguration;
 
-	const { enUS } = await import("date-fns/locale");
-
-	await import("chartjs-adapter-date-fns");
+	await import("chartjs-adapter-dayjs-4");
 
 	const {
 		CategoryScale,
@@ -98,11 +96,6 @@ export async function initiateCO2Chart() {
 				x: {
 					parsing: false,
 					type: "time",
-					adapters: {
-						date: {
-							locale: enUS
-						}
-					},
 					grid: {
 						color: "rgb(255, 255, 255, 0)"
 					},
