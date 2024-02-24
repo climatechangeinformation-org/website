@@ -28,6 +28,8 @@ export default defineConfig({
 						return "chart-js";
 					} else if (id.includes("@kurkle/color")) {
 						return "color";
+					} else if (id.includes("@sentry")) {
+						return "sentry";
 					}
 
 					return "vendor";
