@@ -1,0 +1,30 @@
+name: Generate Sourcemaps for Sentry
+
+on: [push]
+
+jobs:
+  run-eslint:
+    name: Generate Sourcemaps for Sentry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Build sourcemaps
+        run: BUILD_SOURCEMAPS=1 npm run build
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: daniel-miao
+          SENTRY_PROJECT: climatechangeinformation-website
+        with:
+          environment: production
+          sourcemaps: "./dist"

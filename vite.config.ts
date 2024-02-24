@@ -10,6 +10,7 @@ const browsers = "last 30 versions or > 0.01% or not dead or last 3 IE versions"
 
 export default defineConfig({
 	build: {
+		sourcemap: Boolean(process.env.BUILD_SOURCEMAPS),
 		minify: "terser",
 		rollupOptions: {
 			output: {
