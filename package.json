@@ -7,7 +7,8 @@
 		"lint-scss": "npx stylelint '**/*.scss'",
 		"lint-ts": "npx eslint 'src/**/*.ts*' 'types/**/*.ts*'",
 		"lint": "npm run lint-scss && npm run lint-ts",
-		"build": "vite build"
+		"build": "vite build",
+		"build-sourcemaps": "BUILD_SOURCEMAPS=1 vite build"
 	},
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^1.6.2",
