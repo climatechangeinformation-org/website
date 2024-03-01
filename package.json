@@ -11,7 +11,7 @@
 		"build-sourcemaps": "BUILD_SOURCEMAPS=1 vite build"
 	},
 	"devDependencies": {
-		"@stylistic/eslint-plugin": "^1.6.2",
+		"@stylistic/eslint-plugin": "^1.6.3",
 		"@types/node": "^20.11.22",
 		"@typescript-eslint/eslint-plugin": "^7.1.0",
 		"@typescript-eslint/parser": "^7.1.0",
