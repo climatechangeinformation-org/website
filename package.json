@@ -16,7 +16,7 @@
 		"@typescript-eslint/eslint-plugin": "^7.1.0",
 		"@typescript-eslint/parser": "^7.1.0",
 		"chart.js": "^4.4.2",
-		"eslint": "^8.56.0",
+		"eslint": "^8.57.0",
 		"sass": "^1.71.1",
 		"stylelint": "^16.2.1",
 		"stylelint-config-standard-scss": "^13.0.0",
@@ -25,7 +25,7 @@
 	},
 	"dependencies": {
 		"@sentry/browser": "^7.104.0",
-		"@solidjs/router": "^0.12.3",
+		"@solidjs/router": "^0.12.4",
 		"@tsconfig/strictest": "^2.0.3",
 		"@vitejs/plugin-legacy": "~5.3.1",
 		"chartjs-adapter-dayjs-4": "^1.0.4",
