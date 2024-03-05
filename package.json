@@ -13,7 +13,7 @@
 	"devDependencies": {
 		"@stylistic/eslint-plugin": "^1.6.3",
 		"@types/node": "^20.11.24",
-		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/eslint-plugin": "^7.1.1",
 		"@typescript-eslint/parser": "^7.1.1",
 		"chart.js": "^4.4.2",
 		"eslint": "^8.57.0",
