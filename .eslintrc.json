@@ -91,6 +91,10 @@
 		"@stylistic/type-named-tuple-spacing": ["error"],
 		"@stylistic/wrap-iife": ["error"],
 		"@stylistic/wrap-regex": ["error"],
-		"@stylistic/yield-star-spacing": ["error"]
+		"@stylistic/yield-star-spacing": ["error"],
+		"@typescript-eslint/restrict-template-expressions": ["error", {
+			"allowNumber": true,
+			"allowBoolean": true
+		}]
 	}
 }
