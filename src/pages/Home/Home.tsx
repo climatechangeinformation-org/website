@@ -109,7 +109,7 @@ const Home: Component = () => {
 			<Navigation/>
 			<div class="stack">
 				<div class="title current">
-					<h1>Climate Change</h1>
+					<h1>Understand Climate Change. Help Save the Planet.</h1>
 				</div>
 				<Show
 					when={show_co2_chart()}
