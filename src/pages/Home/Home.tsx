@@ -31,7 +31,7 @@ import globe from "../../assets/globe.webp";
 // 803719 BCE - 1958 data:
 // Bereiter, B., S. Eggleston, J. Schmitt, C. Nehrbass-Ahles, T. F. Stocker,
 // H. Fischer, S. Kipfstuhl, J. Chappellaz. 2015.
-// Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present.
+// Revision of the EPICA Dome C CO2 record from 800 to 600kyr before present.
 // Geophysical Research Letters, 42(2), 542-549. doi: 10.1002/2014GL061957
 
 let animation_stage = 0;
