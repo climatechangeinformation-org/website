@@ -3,7 +3,7 @@ import { Router, Route } from "@solidjs/router";
 import { lazy } from "solid-js";
 
 import "./index.scss";
-import("./logging");
+import "./logging";
 
 import Home from "./pages/Home/Home";
 
