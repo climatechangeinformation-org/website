@@ -118,6 +118,10 @@ const Home: Component = () => {
 					<canvas id="co2_chart" class="chart"></canvas>
 				</Show>
 			</div>
+			<div class="scroll-hint">
+				<p>Scroll</p>
+				<div></div>
+			</div>
 		</>
 	);
 };

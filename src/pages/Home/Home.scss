@@ -7,3 +7,23 @@ body {
 		margin: 0;
 	}
 }
+
+.scroll-hint {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 1em;
+
+	& p {
+		font-size: 1em;
+		margin: 0;
+	}
+
+	& div {
+		aspect-ratio: 1 / 1;
+		height: 0.5em;
+		transform: rotate(45deg);
+		border-bottom: 3px solid white;
+		border-right: 3px solid white;
+	}
+}
