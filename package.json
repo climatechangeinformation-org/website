@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@sentry/browser": "^8.37.1",
-		"@solidjs/router": "^0.15.0",
+		"@solidjs/router": "^0.15.1",
 		"@tsconfig/strictest": "^2.0.5",
 		"@vitejs/plugin-legacy": "~5.4.3",
 		"chartjs-adapter-dayjs-4": "^1.0.4",
