@@ -28,7 +28,7 @@
 		"typescript": "^5.7.2"
 	},
 	"dependencies": {
-		"@sentry/browser": "^8.41.0",
+		"@sentry/browser": "^8.42.0",
 		"@solidjs/router": "^0.15.1",
 		"@tsconfig/strictest": "^2.0.5",
 		"@vitejs/plugin-legacy": "~5.4.3",
