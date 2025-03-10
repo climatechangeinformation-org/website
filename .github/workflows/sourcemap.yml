@@ -23,7 +23,7 @@ jobs:
       - name: Build sourcemaps
         run: npm run build-sourcemaps
       - name: Create Sentry release
-        uses: getsentry/action-release@v2
+        uses: getsentry/action-release@v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: daniel-miao
