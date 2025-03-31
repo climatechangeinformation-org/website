@@ -35,7 +35,7 @@
 		"chartjs-adapter-dayjs-4": "^1.0.4",
 		"dayjs": "^1.11.13",
 		"postcss-lightningcss": "^1.0.1",
-		"vite": "^6.2.3",
+		"vite": "^6.2.4",
 		"vite-plugin-solid": "^2.11.6"
 	}
 }
