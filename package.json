@@ -21,7 +21,7 @@
 		"@typescript-eslint/parser": "^8.31.1",
 		"chart.js": "^4.4.9",
 		"eslint": "^9.26.0",
-		"sass": "^1.86.3",
+		"sass": "^1.88.0",
 		"stylelint": "^16.19.1",
 		"stylelint-config-standard-scss": "^14.0.0",
 		"stylelint-order": "^7.0.0",
